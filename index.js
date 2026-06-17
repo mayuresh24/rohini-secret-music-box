@@ -1,35 +1,35 @@
 const playlist = [
 
 {
-title:"Song 1",
+title:"Agar Tum Saath Ho",
 artist:"Artist",
 src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/agar%20tum%20sath%20ho.mp3",
 color:"#ffb6d9"
 },
 
 {
-title:"Song 2",
+title:"Zindagi ke safar me",
 artist:"Artist",
 src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/zindagi ke safar me.mp3",
 color:"#cdb4ff"
 },
 
 {
-title:"Song 3",
+title:"Jane wo kaise log the",
 artist:"Artist",
 src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/jane wo kaise log the.mp3",
 color:"#ffd6a5"
 },
 
 {
-title:"Song 4",
+title:"Luka Chuppi",
 artist:"Artist",
 src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/luka chuppi.mp3",
 color:"#a8edea"
 },
 
 {
-title:"Song 5",
+title:"Jeev Rangala",
 artist:"Artist",
 src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/jeev rangala.mp3",
 color:"#fbc2eb"
