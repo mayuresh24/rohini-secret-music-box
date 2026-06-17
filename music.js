@@ -3,35 +3,35 @@ const playlist = [
 {
 title:"Song 1",
 artist:"Artist",
-src:"https://raw.githubusercontent.com/USERNAME/REPO/main/songs/song1.mp3",
+src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/agar%20tum%20sath%20ho.mp3",
 color:"#ffb6d9"
 },
 
 {
 title:"Song 2",
 artist:"Artist",
-src:"https://raw.githubusercontent.com/USERNAME/REPO/main/songs/song2.mp3",
+src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/zindagi ke safar me.mp3",
 color:"#cdb4ff"
 },
 
 {
 title:"Song 3",
 artist:"Artist",
-src:"https://raw.githubusercontent.com/USERNAME/REPO/main/songs/song3.mp3",
+src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/jane wo kaise log the.mp3",
 color:"#ffd6a5"
 },
 
 {
 title:"Song 4",
 artist:"Artist",
-src:"https://raw.githubusercontent.com/USERNAME/REPO/main/songs/song4.mp3",
+src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/luka chuppi.mp3",
 color:"#a8edea"
 },
 
 {
 title:"Song 5",
 artist:"Artist",
-src:"https://raw.githubusercontent.com/USERNAME/REPO/main/songs/song5.mp3",
+src:"https://raw.githubusercontent.com/mayuresh24/rohini-secret-music-box/main/jeev rangala.mp3",
 color:"#fbc2eb"
 }
 
