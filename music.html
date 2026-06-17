@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 Rohini's Secret Music Box</title>
+    <link rel="stylesheet" href="music.css">
+</head>
+<body>
+
+<div class="stars"></div>
+
+<div class="container">
+
+```
+<h1>🌙 Rohini's Secret Music Box</h1>
+
+<p class="subtitle">
+    Five melodies for the most beautiful chapter of your story ✨
+</p>
+
+<div class="player">
+
+    <div class="disc-container">
+        <div class="disc" id="disc">
+            🌙
+        </div>
+    </div>
+
+    <div class="song-info">
+        <h2 id="songTitle">Song 1</h2>
+        <p id="songArtist">Artist</p>
+    </div>
+
+    <div class="progress-container" id="progressContainer">
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="time">
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
+    </div>
+
+    <div class="controls">
+
+        <button id="prevBtn">⏮</button>
+        <button id="playBtn">▶</button>
+        <button id="nextBtn">⏭</button>
+
+    </div>
+
+    <div class="extras">
+
+        <button id="shuffleBtn">🔀 Shuffle</button>
+        <button id="repeatBtn">🔁 Repeat</button>
+
+    </div>
+
+    <div class="volume">
+
+        🔊
+        <input
+            type="range"
+            id="volumeSlider"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1">
+
+    </div>
+
+</div>
+
+<div class="playlist" id="playlist"></div>
+```
+
+</div>
+
+<audio id="audio"></audio>
+
+<script src="music.js"></script>
+
+</body>
+</html>
