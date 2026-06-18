@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Pieces of Rohini ✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#0f1020,#1d1135,#2b124c);
+    color:white;
+    position:relative;
+}
+
+/* Background Stars */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    color:white;
+    opacity:.4;
+    animation:twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.2;transform:scale(.8);}
+    50%{opacity:1;transform:scale(1.2);}
+}
+
+/* Header */
+
+.hero{
+    text-align:center;
+    padding:80px 20px 40px;
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:3rem;
+    font-family:'Dancing Script',cursive;
+    margin-bottom:10px;
+}
+
+.hero p{
+    max-width:600px;
+    margin:auto;
+    opacity:.85;
+    line-height:1.7;
+}
+
+/* Collage */
+
+.collage{
+    width:95%;
+    max-width:1300px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    position:relative;
+    z-index:2;
+}
+
+.card{
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:30px;
+    padding:25px;
+    min-height:220px;
+    box-shadow:0 8px 30px rgba(0,0,0,.3);
+
+    opacity:0;
+    transform:translateY(60px);
+
+    animation:
+    reveal .8s forwards,
+    float 5s ease-in-out infinite;
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:scale(1.06) rotate(0deg);
+    box-shadow:0 0 35px rgba(255,255,255,.25);
+}
+
+.card:nth-child(odd){
+    transform:rotate(-3deg);
+}
+
+.card:nth-child(even){
+    transform:rotate(3deg);
+}
+
+.card .emoji{
+    font-size:2.3rem;
+    margin-bottom:15px;
+}
+
+.card .title{
+    font-size:.95rem;
+    opacity:.75;
+    margin-bottom:15px;
+}
+
+.card .answer{
+    font-size:1.6rem;
+    font-weight:700;
+    margin-top:15px;
+}
+
+.card p{
+    line-height:1.7;
+}
+
+/* Different animation delays */
+
+.card:nth-child(1){animation-delay:.2s;}
+.card:nth-child(2){animation-delay:.4s;}
+.card:nth-child(3){animation-delay:.6s;}
+.card:nth-child(4){animation-delay:.8s;}
+.card:nth-child(5){animation-delay:1s;}
+.card:nth-child(6){animation-delay:1.2s;}
+.card:nth-child(7){animation-delay:1.4s;}
+.card:nth-child(8){animation-delay:1.6s;}
+.card:nth-child(9){animation-delay:1.8s;}
+.card:nth-child(10){animation-delay:2s;}
+.card:nth-child(11){animation-delay:2.2s;}
+
+@keyframes reveal{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    0%,100%{
+        translate:0 0;
+    }
+    50%{
+        translate:0 -10px;
+    }
+}
+
+/* Footer */
+
+.footer{
+    text-align:center;
+    padding:80px 20px;
+    position:relative;
+    z-index:2;
+}
+
+.footer p{
+    font-size:1.2rem;
+    margin-bottom:20px;
+}
+
+.name{
+    font-size:3rem;
+    font-family:'Dancing Script',cursive;
+    animation:heartbeat 2s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
+        text-shadow:0 0 10px pink;
+    }
+    50%{
+        transform:scale(1.1);
+        text-shadow:0 0 30px pink;
+    }
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.2rem;
+}
+
+.card{
+    min-height:auto;
+}
+
+.name{
+    font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="hero">
+    <h1>✨ Little Pieces of Rohini ✨</h1>
+
+    <p>
+        Some people are made of stars.
+        She is made of songs, seasons,
+        dreams and tiny beautiful things.
+    </p>
+</div>
+
+<div class="collage">
+
+    <!-- 1 -->
+    <div class="card">
+        <div class="emoji">🏡</div>
+        <div class="title">Where her heart quietly rests...</div>
+        <div class="answer">Home</div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+        <div class="emoji">📖</div>
+        <div class="title">A chapter she'd revisit forever...</div>
+        <div class="answer">2024</div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+        <div class="emoji">🎶</div>
+        <div class="title">A melody she never gets tired of...</div>
+        <div class="answer">Your Song</div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+        <div class="emoji">💞</div>
+        <div class="title">Somewhere between the lyrics...</div>
+        <p>there's a little bit of us.</p>
+        <div class="answer">Our Song</div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+        <div class="emoji">🎬</div>
+        <div class="title">A story she could watch forever...</div>
+        <div class="answer">Movie Name</div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+        <div class="emoji">💧</div>
+        <div class="title">The movie that touched her heart...</div>
+        <div class="answer">Movie Name</div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+        <div class="emoji">✈️</div>
+        <div class="title">One ticket. Unlimited memories.</div>
+        <div class="answer">Switzerland</div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+        <div class="emoji">🌸</div>
+        <div class="title">If she were a flower...</div>
+        <p>she'd bloom as</p>
+        <div class="answer">Rose</div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+        <div class="emoji">🍫</div>
+        <div class="title">Happiness wrapped in foil...</div>
+        <div class="answer">Dairy Milk</div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+        <div class="emoji">🍂</div>
+        <div class="title">The season that matches her vibe...</div>
+        <div class="answer">Winter</div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+        <div class="emoji">🎨</div>
+        <div class="title">A shade that feels like her...</div>
+        <div class="answer">Lavender</div>
+    </div>
+
+</div>
+
+<div class="footer">
+
+    <p>
+        And somehow all these little things come together
+        to create someone truly special.
+    </p>
+
+    <div class="name">
+        ♥ Rohini ♥
+    </div>
+
+</div>
+
+<script>
+
+// Stars
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<80;i++){
+
+    let star=document.createElement("div");
+
+    star.className="star";
+    star.innerHTML=Math.random()>0.5?"✦":"✧";
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    star.style.fontSize=
+    (Math.random()*14+8)+"px";
+
+    star.style.animationDelay=
+    Math.random()*5+"s";
+
+    stars.appendChild(star);
+}
+
+</script>
+
+</body>
+</html>
