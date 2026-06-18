@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Little Pieces of Rohini ✨</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -16,39 +17,34 @@
 }
 
 body{
-    min-height:100vh;
-    overflow-x:hidden;
     font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#0f1020,#1d1135,#2b124c);
+    background:linear-gradient(135deg,#14142a,#24183f,#341b58);
     color:white;
-    position:relative;
+    overflow-x:hidden;
+    min-height:100vh;
 }
 
-/* Background Stars */
+/* STARS */
 
 .stars{
     position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    overflow:hidden;
+    inset:0;
     z-index:0;
 }
 
 .star{
     position:absolute;
     color:white;
-    opacity:.4;
-    animation:twinkle 4s infinite ease-in-out;
+    opacity:.3;
+    animation:twinkle 4s infinite;
 }
 
 @keyframes twinkle{
-    0%,100%{opacity:.2;transform:scale(.8);}
-    50%{opacity:1;transform:scale(1.2);}
+    0%,100%{opacity:.2;}
+    50%{opacity:1;}
 }
 
-/* Header */
+/* HEADER */
 
 .hero{
     text-align:center;
@@ -60,83 +56,158 @@ body{
 .hero h1{
     font-size:3rem;
     font-family:'Dancing Script',cursive;
-    margin-bottom:10px;
 }
 
 .hero p{
-    max-width:600px;
-    margin:auto;
+    margin-top:15px;
     opacity:.85;
-    line-height:1.7;
+    max-width:650px;
+    margin-inline:auto;
 }
 
-/* Collage */
+/* COLLAGE */
 
 .collage{
     width:95%;
     max-width:1300px;
-    margin:40px auto;
+    margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:28px;
+
     position:relative;
     z-index:2;
 }
 
 .card{
-    backdrop-filter:blur(18px);
-    background:rgba(255,255,255,.08);
+    position:relative;
+    overflow:hidden;
+
+    min-height:240px;
+
+    border-radius:28px;
+
     border:1px solid rgba(255,255,255,.15);
-    border-radius:30px;
-    padding:25px;
-    min-height:220px;
-    box-shadow:0 8px 30px rgba(0,0,0,.3);
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.35);
 
     opacity:0;
-    transform:translateY(60px);
+    transform:translateY(40px);
 
     animation:
-    reveal .8s forwards,
-    float 5s ease-in-out infinite;
-
-    transition:.4s;
-}
-
-.card:hover{
-    transform:scale(1.06) rotate(0deg);
-    box-shadow:0 0 35px rgba(255,255,255,.25);
+    reveal .9s forwards,
+    float 6s ease-in-out infinite;
 }
 
 .card:nth-child(odd){
-    transform:rotate(-3deg);
+    rotate:-2deg;
 }
 
 .card:nth-child(even){
-    transform:rotate(3deg);
+    rotate:2deg;
 }
 
-.card .emoji{
-    font-size:2.3rem;
-    margin-bottom:15px;
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:.35;
+
+    transition:.8s;
 }
 
-.card .title{
+.card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.65));
+
+    z-index:1;
+}
+
+.card:hover::before{
+    transform:scale(1.15);
+    opacity:.55;
+}
+
+.content{
+    position:relative;
+    z-index:2;
+    padding:25px;
+}
+
+.title{
     font-size:.95rem;
-    opacity:.75;
-    margin-bottom:15px;
+    opacity:.9;
 }
 
-.card .answer{
-    font-size:1.6rem;
+.answer{
+    margin-top:18px;
+    font-size:1.8rem;
     font-weight:700;
-    margin-top:15px;
 }
 
-.card p{
-    line-height:1.7;
+.content p{
+    margin-top:8px;
 }
 
-/* Different animation delays */
+/* IMAGE PLACEHOLDERS */
+
+.home-card::before{
+    background-image:url("hayday-home.jpg");
+}
+
+.year-card::before{
+    background-image:url("hayday-year.jpg");
+}
+
+.song-card::before{
+    background-image:url("hayday-song.jpg");
+}
+
+.us-song-card::before{
+    background-image:url("hayday-us.jpg");
+}
+
+.movie-card::before{
+    background-image:url("hayday-movie.jpg");
+}
+
+.cry-card::before{
+    background-image:url("hayday-cry.jpg");
+}
+
+.travel-card::before{
+    background-image:url("hayday-travel.jpg");
+}
+
+.flower-card::before{
+    background-image:url("hayday-flower.jpg");
+}
+
+.chocolate-card::before{
+    background-image:url("hayday-chocolate.jpg");
+}
+
+.season-card::before{
+    background-image:url("hayday-season.jpg");
+}
+
+.color-card::before{
+    background-image:url("hayday-color.jpg");
+}
+
+/* ANIMATIONS */
 
 .card:nth-child(1){animation-delay:.2s;}
 .card:nth-child(2){animation-delay:.4s;}
@@ -162,37 +233,39 @@ body{
         translate:0 0;
     }
     50%{
-        translate:0 -10px;
+        translate:0 -12px;
     }
 }
 
-/* Footer */
+/* FOOTER */
 
 .footer{
     text-align:center;
-    padding:80px 20px;
+    padding:90px 20px;
     position:relative;
     z-index:2;
 }
 
 .footer p{
-    font-size:1.2rem;
-    margin-bottom:20px;
+    margin-bottom:25px;
+    font-size:1.1rem;
 }
 
 .name{
     font-size:3rem;
     font-family:'Dancing Script',cursive;
-    animation:heartbeat 2s infinite;
+
+    animation:pulse 2s infinite;
 }
 
-@keyframes heartbeat{
+@keyframes pulse{
     0%,100%{
         transform:scale(1);
         text-shadow:0 0 10px pink;
     }
+
     50%{
-        transform:scale(1.1);
+        transform:scale(1.08);
         text-shadow:0 0 30px pink;
     }
 }
@@ -203,19 +276,18 @@ body{
     font-size:2.2rem;
 }
 
-.card{
-    min-height:auto;
+.answer{
+    font-size:1.5rem;
 }
 
 .name{
-    font-size:2.2rem;
+    font-size:2.3rem;
 }
 
 }
 
 </style>
 </head>
-
 <body>
 
 <div class="stars" id="stars"></div>
@@ -232,126 +304,125 @@ body{
 
 <div class="collage">
 
-    <!-- 1 -->
-    <div class="card">
-        <div class="emoji">🏡</div>
-        <div class="title">Where her heart quietly rests...</div>
-        <div class="answer">Home</div>
-    </div>
+<div class="card home-card">
+<div class="content">
+<div class="title">Where her heart quietly rests...</div>
+<div class="answer">Home</div>
+</div>
+</div>
 
-    <!-- 2 -->
-    <div class="card">
-        <div class="emoji">📖</div>
-        <div class="title">A chapter she'd revisit forever...</div>
-        <div class="answer">2024</div>
-    </div>
+<div class="card year-card">
+<div class="content">
+<div class="title">A chapter she'd revisit forever...</div>
+<div class="answer">2024</div>
+</div>
+</div>
 
-    <!-- 3 -->
-    <div class="card">
-        <div class="emoji">🎶</div>
-        <div class="title">A melody she never gets tired of...</div>
-        <div class="answer">Your Song</div>
-    </div>
+<div class="card song-card">
+<div class="content">
+<div class="title">A melody she never gets tired of...</div>
+<div class="answer">Your Song</div>
+</div>
+</div>
 
-    <!-- 4 -->
-    <div class="card">
-        <div class="emoji">💞</div>
-        <div class="title">Somewhere between the lyrics...</div>
-        <p>there's a little bit of us.</p>
-        <div class="answer">Our Song</div>
-    </div>
+<div class="card us-song-card">
+<div class="content">
+<div class="title">Somewhere between the lyrics...</div>
+<p>there's a little bit of us.</p>
+<div class="answer">Our Song</div>
+</div>
+</div>
 
-    <!-- 5 -->
-    <div class="card">
-        <div class="emoji">🎬</div>
-        <div class="title">A story she could watch forever...</div>
-        <div class="answer">Movie Name</div>
-    </div>
+<div class="card movie-card">
+<div class="content">
+<div class="title">A story she could watch forever...</div>
+<div class="answer">Movie Name</div>
+</div>
+</div>
 
-    <!-- 6 -->
-    <div class="card">
-        <div class="emoji">💧</div>
-        <div class="title">The movie that touched her heart...</div>
-        <div class="answer">Movie Name</div>
-    </div>
+<div class="card cry-card">
+<div class="content">
+<div class="title">The movie that touched her heart...</div>
+<div class="answer">Movie Name</div>
+</div>
+</div>
 
-    <!-- 7 -->
-    <div class="card">
-        <div class="emoji">✈️</div>
-        <div class="title">One ticket. Unlimited memories.</div>
-        <div class="answer">Switzerland</div>
-    </div>
+<div class="card travel-card">
+<div class="content">
+<div class="title">One ticket. Unlimited memories.</div>
+<div class="answer">Switzerland</div>
+</div>
+</div>
 
-    <!-- 8 -->
-    <div class="card">
-        <div class="emoji">🌸</div>
-        <div class="title">If she were a flower...</div>
-        <p>she'd bloom as</p>
-        <div class="answer">Rose</div>
-    </div>
+<div class="card flower-card">
+<div class="content">
+<div class="title">If she were a flower...</div>
+<p>she'd bloom as</p>
+<div class="answer">Rose</div>
+</div>
+</div>
 
-    <!-- 9 -->
-    <div class="card">
-        <div class="emoji">🍫</div>
-        <div class="title">Happiness wrapped in foil...</div>
-        <div class="answer">Dairy Milk</div>
-    </div>
+<div class="card chocolate-card">
+<div class="content">
+<div class="title">Happiness wrapped in foil...</div>
+<div class="answer">Dairy Milk</div>
+</div>
+</div>
 
-    <!-- 10 -->
-    <div class="card">
-        <div class="emoji">🍂</div>
-        <div class="title">The season that matches her vibe...</div>
-        <div class="answer">Winter</div>
-    </div>
+<div class="card season-card">
+<div class="content">
+<div class="title">The season that matches her vibe...</div>
+<div class="answer">Winter</div>
+</div>
+</div>
 
-    <!-- 11 -->
-    <div class="card">
-        <div class="emoji">🎨</div>
-        <div class="title">A shade that feels like her...</div>
-        <div class="answer">Lavender</div>
-    </div>
+<div class="card color-card">
+<div class="content">
+<div class="title">A shade that feels like her...</div>
+<div class="answer">Lavender</div>
+</div>
+</div>
 
 </div>
 
 <div class="footer">
 
-    <p>
-        And somehow all these little things come together
-        to create someone truly special.
-    </p>
+<p>
+And somehow all these little things come together
+to create someone truly special.
+</p>
 
-    <div class="name">
-        ♥ Rohini ♥
-    </div>
+<div class="name">
+♥ Rohini ♥
+</div>
 
 </div>
 
 <script>
 
-// Stars
-
 const stars=document.getElementById("stars");
 
-for(let i=0;i<80;i++){
+for(let i=0;i<70;i++){
 
-    let star=document.createElement("div");
+let star=document.createElement("div");
 
-    star.className="star";
-    star.innerHTML=Math.random()>0.5?"✦":"✧";
+star.className="star";
 
-    star.style.left=Math.random()*100+"%";
-    star.style.top=Math.random()*100+"%";
+star.innerHTML=Math.random()>.5?"✦":"✧";
 
-    star.style.fontSize=
-    (Math.random()*14+8)+"px";
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
 
-    star.style.animationDelay=
-    Math.random()*5+"s";
+star.style.fontSize=(Math.random()*12+8)+"px";
 
-    stars.appendChild(star);
+star.style.animationDelay=Math.random()*5+"s";
+
+stars.appendChild(star);
+
 }
 
 </script>
 
 </body>
 </html>
+```
