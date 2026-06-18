@@ -6,6 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌙 Rohini's Secret Music Box</title>
     <link rel="stylesheet" href="index.css">
+    <style>
+
+.secret-door{
+    text-align:center;
+    margin:70px 20px 40px;
+}
+
+.secret-door p{
+    color:#ffffffcc;
+    font-size:1rem;
+    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+.magic-btn{
+    display:inline-block;
+    padding:16px 34px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #ff9ecf,
+        #c59cff,
+        #8ec5ff
+    );
+
+    background-size:300% 300%;
+
+    box-shadow:
+    0 0 20px rgba(255,158,207,.5);
+
+    animation:
+    gradientMove 6s ease infinite,
+    pulse 2s infinite;
+
+    transition:.4s;
+}
+
+.magic-btn:hover{
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:
+    0 0 35px rgba(255,158,207,.8);
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.04);
+    }
+}
+
+</style>
+
 </head>
 <body>
 
@@ -13,7 +78,6 @@
 
 <div class="container">
 
-```
 <h1>🌙 Rohini's Secret Music Box</h1>
 
 <p class="subtitle">
@@ -73,8 +137,15 @@
 </div>
 
 <div class="playlist" id="playlist"></div>
-```
 
+
+</div>
+<div class="secret-door">
+    <p>There's one more little surprise waiting for you ✨</p>
+
+    <a href="rohini-universe.html" class="magic-btn">
+        Open Rohini's Universe 🌸
+    </a>
 </div>
 
 <audio id="audio"></audio>
