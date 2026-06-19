@@ -4,425 +4,795 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Little Pieces of Rohini ✨</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<title>The Night Sky of Rohini ✨</title>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#14142a,#24183f,#341b58);
-    color:white;
-    overflow-x:hidden;
-    min-height:100vh;
+overflow:hidden;
+height:100vh;
+background:
+linear-gradient(
+180deg,
+#ffb6d9 0%,
+#d49cff 40%,
+#6c4ab6 75%,
+#1f1b3a 100%
+);
+position:relative;
+color:white;
 }
 
-/* STARS */
-
-.stars{
-    position:fixed;
-    inset:0;
-    z-index:0;
+#sky{
+width:100%;
+height:100vh;
+position:relative;
+overflow:hidden;
 }
 
-.star{
-    position:absolute;
-    color:white;
-    opacity:.3;
-    animation:twinkle 4s infinite;
+/* Moon */
+
+.moon{
+position:absolute;
+top:50px;
+right:60px;
+width:120px;
+height:120px;
+border-radius:50%;
+background:white;
+box-shadow:
+0 0 30px white,
+0 0 60px #fff,
+0 0 100px #fff;
+opacity:.9;
+}
+
+/* Title */
+
+.title{
+position:absolute;
+top:30px;
+left:50%;
+transform:translateX(-50%);
+text-align:center;
+z-index:10;
+}
+
+.title h1{
+font-size:2rem;
+margin-bottom:8px;
+}
+
+.title p{
+font-size:.95rem;
+opacity:.9;
+}
+
+/* Progress */
+
+#progress{
+position:absolute;
+top:20px;
+left:20px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+padding:12px 18px;
+border-radius:20px;
+z-index:10;
+}
+
+/* Floating Stars */
+
+.small-star{
+position:absolute;
+color:white;
+animation:twinkle 2s infinite;
+font-size:10px;
 }
 
 @keyframes twinkle{
-    0%,100%{opacity:.2;}
-    50%{opacity:1;}
+0%,100%{opacity:.3;}
+50%{opacity:1;}
 }
 
-/* HEADER */
-
-.hero{
-    text-align:center;
-    padding:80px 20px 40px;
-    position:relative;
-    z-index:2;
+/* Interactive Items */
+.item{
+position:absolute;
+font-size:42px;
+cursor:pointer;
+transition:.4s;
+animation:float 3s ease-in-out infinite;
+user-select:none;
+padding:10px;
+-webkit-tap-highlight-color: transparent;
+touch-action: manipulation;
 }
 
-.hero h1{
-    font-size:3rem;
-    font-family:'Dancing Script',cursive;
-}
 
-.hero p{
-    margin-top:15px;
-    opacity:.85;
-    max-width:650px;
-    margin-inline:auto;
-}
-
-/* COLLAGE */
-
-.collage{
-    width:95%;
-    max-width:1300px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:28px;
-
-    position:relative;
-    z-index:2;
-}
-
-.card{
-    position:relative;
-    overflow:hidden;
-
-    min-height:240px;
-
-    border-radius:28px;
-
-    border:1px solid rgba(255,255,255,.15);
-
-    box-shadow:
-    0 10px 35px rgba(0,0,0,.35);
-
-    opacity:0;
-    transform:translateY(40px);
-
-    animation:
-    reveal .9s forwards,
-    float 6s ease-in-out infinite;
-}
-
-.card:nth-child(odd){
-    rotate:-2deg;
-}
-
-.card:nth-child(even){
-    rotate:2deg;
-}
-
-.card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background-size:cover;
-    background-position:center;
-
-    opacity:.35;
-
-    transition:.8s;
-}
-
-.card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(
-    rgba(0,0,0,.25),
-    rgba(0,0,0,.65));
-
-    z-index:1;
-}
-
-.card:hover::before{
-    transform:scale(1.15);
-    opacity:.55;
-}
-
-.content{
-    position:relative;
-    z-index:2;
-    padding:25px;
-}
-
-.title{
-    font-size:.95rem;
-    opacity:.9;
-}
-
-.answer{
-    margin-top:18px;
-    font-size:1.8rem;
-    font-weight:700;
-}
-
-.content p{
-    margin-top:8px;
-}
-
-/* IMAGE PLACEHOLDERS */
-
-.home-card::before{
-    background-image:url("images/home.jpg");
-}
-
-.year-card::before{
-    background-image:url("images/kakan.jpg");
-}
-
-.song-card::before{
-    background-image:url("hayday-song.jpg");
-}
-
-.us-song-card::before{
-    background-image:url("hayday-us.jpg");
-}
-
-.movie-card::before{
-    background-image:url("hayday-movie.jpg");
-}
-
-.cry-card::before{
-    background-image:url("hayday-cry.jpg");
-}
-
-.travel-card::before{
-    background-image:url("hayday-travel.jpg");
-}
-
-.flower-card::before{
-    background-image:url("hayday-flower.jpg");
-}
-
-.chocolate-card::before{
-    background-image:url("hayday-chocolate.jpg");
-}
-
-.season-card::before{
-    background-image:url("hayday-season.jpg");
-}
-
-.color-card::before{
-    background-image:url("hayday-color.jpg");
-}
-
-/* ANIMATIONS */
-
-.card:nth-child(1){animation-delay:.2s;}
-.card:nth-child(2){animation-delay:.4s;}
-.card:nth-child(3){animation-delay:.6s;}
-.card:nth-child(4){animation-delay:.8s;}
-.card:nth-child(5){animation-delay:1s;}
-.card:nth-child(6){animation-delay:1.2s;}
-.card:nth-child(7){animation-delay:1.4s;}
-.card:nth-child(8){animation-delay:1.6s;}
-.card:nth-child(9){animation-delay:1.8s;}
-.card:nth-child(10){animation-delay:2s;}
-.card:nth-child(11){animation-delay:2.2s;}
-
-@keyframes reveal{
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.item:hover{
+transform:scale(1.25);
 }
 
 @keyframes float{
-    0%,100%{
-        translate:0 0;
-    }
-    50%{
-        translate:0 -12px;
-    }
+0%,100%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-8px);
+}
 }
 
-/* FOOTER */
+/* Modal */
 
-.footer{
-    text-align:center;
-    padding:90px 20px;
-    position:relative;
-    z-index:2;
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:100;
+}
+.modal-content{
+max-width:550px;
+width:100%;
+background:white;
+border-radius:25px;
+overflow:hidden;
+animation:pop .4s ease;
+color:#333;
 }
 
-.footer p{
-    margin-bottom:25px;
-    font-size:1.1rem;
+.modal-image{
+height:250px;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 }
 
-.name{
-    font-size:3rem;
-    font-family:'Dancing Script',cursive;
-
-    animation:pulse 2s infinite;
+.modal-body{
+padding:25px;
+text-align:center;
 }
 
-@keyframes pulse{
-    0%,100%{
-        transform:scale(1);
-        text-shadow:0 0 10px pink;
-    }
+.modal-body h2{
+margin-bottom:15px;
+color:#ff4f9a;
+}
 
-    50%{
-        transform:scale(1.08);
-        text-shadow:0 0 30px pink;
-    }
+.modal-body p{
+line-height:1.8;
+}
+
+.close-btn{
+margin-top:20px;
+padding:12px 24px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+background:#ff6fb5;
+color:white;
+font-weight:bold;
+}
+
+.close-btn:hover{
+transform:scale(1.05);
+}
+
+
+.modal-content h2,
+.modal-content p,
+.modal-content button{
+position:relative;
+z-index:1;
+}
+
+@keyframes pop{
+from{
+transform:scale(.7);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+.modal-content h2{
+margin-bottom:15px;
+}
+
+.modal-content p{
+line-height:1.7;
+}
+
+.close-btn{
+margin-top:20px;
+padding:10px 22px;
+border:none;
+border-radius:20px;
+background:white;
+cursor:pointer;
+}
+
+/* Final Message */
+
+#finalMessage{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:25px;
+z-index:200;
+}
+
+#finalMessage .box{
+max-width:700px;
+animation:fadeIn 2s;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+#finalMessage h1{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+#finalMessage p{
+font-size:1.2rem;
+line-height:1.8;
+}
+
+/* Floating Hearts */
+
+.heart{
+position:absolute;
+font-size:18px;
+opacity:.5;
+animation:rise 12s linear infinite;
+}
+
+@keyframes rise{
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+to{
+transform:translateY(-120px);
+opacity:.8;
+}
 }
 
 @media(max-width:768px){
 
-.hero h1{
-    font-size:2.2rem;
+.title h1{
+font-size:1.5rem;
 }
 
-.answer{
-    font-size:1.5rem;
+.item{
+font-size:28px;
 }
 
-.name{
-    font-size:2.3rem;
+.moon{
+width:90px;
+height:90px;
+}
+
+#finalMessage h1{
+font-size:2rem;
 }
 
 }
 
 </style>
 </head>
+
 <body>
 
-<div class="stars" id="stars"></div>
+<div id="sky">
 
-<div class="hero">
-    <h1>✨ Little Pieces of Rohini ✨</h1>
+<div class="moon"></div>
 
-    <p>
-        Some people are made of stars.
-        She is made of songs, seasons,
-        dreams and tiny beautiful things.
-    </p>
+<div id="progress">
+✨ <span id="count">0</span>/11 Discovered
 </div>
 
-<div class="collage">
-
-<div class="card home-card">
-<div class="content">
-<div class="title">Where her heart quietly rests...</div>
-<div class="answer">My Home</div>
-</div>
+<div class="title">
+<h1>🌙 The Night Sky of Rohini</h1>
+<p>Every star, heart and flower hides a little piece of your universe ✨</p>
 </div>
 
-<div class="card year-card">
-<div class="content">
-<div class="title">A chapter she'd revisit forever...</div>
-<div class="answer">2026</div>
-</div>
+<!-- Interactive Objects -->
+
+<div class="item" style="top:20%;left:12%" onclick="openStar(0)">❤️</div>
+<div class="item" style="top:28%;left:70%" onclick="openStar(1)">⭐</div>
+<div class="item" style="top:45%;left:25%" onclick="openStar(2)">⭐</div>
+<div class="item" style="top:35%;left:50%" onclick="openStar(3)">❤️</div>
+<div class="item" style="top:58%;left:15%" onclick="openStar(4)">🌼</div>
+<div class="item" style="top:60%;left:75%" onclick="openStar(5)">🌼</div>
+<div class="item" style="top:75%;left:45%" onclick="openStar(6)">⭐</div>
+<div class="item" style="top:18%;left:85%" onclick="openStar(7)">🌼</div>
+<div class="item" style="top:80%;left:20%" onclick="openStar(8)">❤️</div>
+<div class="item" style="top:72%;left:82%" onclick="openStar(9)">⭐</div>
+<div class="item" style="top:50%;left:88%" onclick="openStar(10)">🌼</div>
+
 </div>
 
-<div class="card song-card">
-<div class="content">
-<div class="title">A melody she never gets tired of...</div>
-<div class="answer">Luka Chuppi</div>
-</div>
+<div class="modal" id="modal">
+<div class="modal-content">
+
+<div class="modal-image" id="modalImage"></div>
+
+<div class="modal-body">
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+
+<button class="close-btn" onclick="closeModal()" style="color: #1f1b3a;">
+    Close ✨
+</button>
+
+
 </div>
 
-<div class="card us-song-card">
-<div class="content">
-<div class="title">Somewhere between the lyrics...</div>
-<p>there's a little bit of us.</p>
-<div class="answer">Our Song</div>
-</div>
-</div>
-
-<div class="card movie-card">
-<div class="content">
-<div class="title">A story she could watch forever...</div>
-<div class="answer">Kakan</div>
-</div>
-</div>
-
-<div class="card cry-card">
-<div class="content">
-<div class="title">The movie that touched her heart...</div>
-<div class="answer">Kakan</div>
-</div>
-</div>
-
-<div class="card travel-card">
-<div class="content">
-<div class="title">One ticket. Unlimited memories.</div>
-<div class="answer">Not Yet decided</div>
-</div>
-</div>
-
-<div class="card flower-card">
-<div class="content">
-<div class="title">If she were a flower...</div>
-<p>she'd bloom as</p>
-<div class="answer">Jasmine and Mogra</div>
-</div>
-</div>
-
-<div class="card chocolate-card">
-<div class="content">
-<div class="title">Happiness wrapped in foil...</div>
-<div class="answer">Cadbury fuse</div>
-</div>
-</div>
-
-<div class="card season-card">
-<div class="content">
-<div class="title">The season that matches her vibe...</div>
-<div class="answer">Monsoon</div>
-</div>
-</div>
-
-<div class="card color-card">
-<div class="content">
-<div class="title">A shade that feels like her...</div>
-<div class="answer">Sky blue, White, Lavender</div>
-</div>
 </div>
 
 </div>
 
-<div class="footer">
+<div id="finalMessage">
+<div class="box">
+<h1>🌌 Constellation Complete</h1>
 
 <p>
-And somehow all these little things come together
-to create someone truly special.
+A flower.<br>
+A song.<br>
+A season.<br>
+A memory.<br><br>
+
+Eleven little answers.<br>
+Eleven little stars.<br><br>
+
+Together they create a sky<br>
+that could belong to nobody else.<br><br>
+
+Happy Birthday Rohini ❤️
 </p>
-
-<div class="name">
-♥ Rohini ♥
 </div>
-
 </div>
 
 <script>
 
-const stars=document.getElementById("stars");
+const backgrounds = [
+'images/myhome.jpg',
+'images/cyear.jpg',
+'images/luka chuppi rdb.jpg',
+'images/agar tum.jpeg',
+'images/kaakan.jpeg',
+'images/kakanhd.jpg',
+'images/world waiting.png',
+'images/fav flower.jpg',
+'images/fuse.jpg',
+'images/monsoon.jpg',
+'images/fav color shades.png'
+];
 
-for(let i=0;i<70;i++){
+const stars = [
 
-let star=document.createElement("div");
+{
+title:"❤️ Home",
+text:`Out of all the places in the world,
+your comfort place is home.
 
-star.className="star";
+Maybe that's because your heart belongs
+where love, warmth and familiar smiles live.`
+},
 
-star.innerHTML=Math.random()>.5?"✦":"✧";
+{
+title:"⭐ 2026 Memories",
+text:`You said 2026 is your happiest year.
+
+Not everyone realizes they're living
+their good days while they're happening.
+
+I love that you're collecting memories
+instead of waiting for happiness someday.`
+},
+
+{
+title:"⭐ Luka Chuppi",
+text:`Some songs don't just play in our ears.
+
+They stay in our hearts and quietly
+become part of who we are.`
+},
+
+{
+title:"❤️ Agar Tum Sath Ho",
+text:`If a song reminds you of us,
+
+then every time it plays,
+a little piece of our story plays too.`
+},
+
+{
+title:"🌼 Kakan",
+text:`The movies we love often reflect
+the emotions we understand best.
+
+Maybe that's why this story stayed with you.`
+},
+
+{
+title:"🌼 Tears",
+text:`The same movie made you cry.
+
+That says something beautiful —
+
+you don't just watch stories,
+you feel them.`
+},
+
+{
+title:"⭐ Adventure",
+text:`Most people have a dream destination ready.
+
+You surprised me.
+
+Maybe you're the kind of person
+who enjoys the journey more than
+the destination.`
+},
+
+{
+title:"🌼 Jasmine",
+text:`Small flowers.
+
+Gentle fragrance.
+
+Quiet beauty.
+
+Somehow that choice feels very you.`
+},
+
+{
+title:"❤️ Cadbury Fuse",
+text:`Out of every chocolate in the world,
+you chose Fuse.
+
+A reminder that sometimes the simplest
+favorites stay with us the longest.`
+},
+
+{
+title:"⭐ Monsoon",
+text:`Rainy skies.
+
+Cold winds.
+
+The smell of wet earth.
+
+Some people wait for sunshine.
+
+You find beauty in the rain.`
+},
+
+{
+title:"🌼 Colors",
+text:`Sky blue.
+
+White.
+
+Lavender.
+
+Soft colors.
+Peaceful colors.
+
+The kind that make you stop
+and breathe for a moment.`
+}
+
+];
+
+let discovered = [];
+
+function openStar(index){
+
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImage").style.backgroundImage =
+`url(${backgrounds[index]})`;
+
+document.getElementById("modalTitle").innerHTML =
+stars[index].title;
+
+document.getElementById("modalText").innerHTML =
+stars[index].text.replace(/\n/g,"<br>");
+
+if(!discovered.includes(index)){
+const clickedItem =
+document.querySelectorAll('.item')[index];
+
+const replacements = {
+'⭐':'🌟',
+'❤️':'💖',
+'🌼':'🌸'
+};
+
+clickedItem.innerHTML =
+replacements[clickedItem.innerHTML];
+
+clickedItem.style.filter =
+"drop-shadow(0 0 18px gold)";
+
+clickedItem.style.transform =
+"scale(1.15)";
+
+discovered.push(index);
+
+document.getElementById("count").innerText =
+discovered.length;
+
+createSparkles();
+
+if(discovered.length===11){
+
+setTimeout(()=>{
+showFinalMessage();
+},1500);
+
+}
+
+}
+
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+/* Small Twinkling Stars */
+
+for(let i=0;i<120;i++){
+
+const star=document.createElement("div");
+
+star.classList.add("small-star");
+
+star.innerHTML="✦";
 
 star.style.left=Math.random()*100+"%";
 star.style.top=Math.random()*100+"%";
 
-star.style.fontSize=(Math.random()*12+8)+"px";
+star.style.animationDelay=
+Math.random()*3+"s";
 
-star.style.animationDelay=Math.random()*5+"s";
+star.style.fontSize=
+(Math.random()*10+6)+"px";
 
-stars.appendChild(star);
+document.getElementById("sky")
+.appendChild(star);
 
 }
 
+/* Floating Hearts */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+const symbols=["❤️","💖","💕","🌸"];
+
+heart.innerHTML=
+symbols[Math.floor(Math.random()*symbols.length)];
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(Math.random()*8+8)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},15000);
+
+}
+
+setInterval(createHeart,1500);
+
+/* Sparkle Burst */
+
+function createSparkles(){
+
+for(let i=0;i<12;i++){
+
+const sparkle=document.createElement("div");
+
+sparkle.innerHTML="✨";
+
+sparkle.style.position="fixed";
+
+sparkle.style.left=
+(50 + Math.random()*20 -10)+"%";
+
+sparkle.style.top=
+(50 + Math.random()*20 -10)+"%";
+
+sparkle.style.fontSize="22px";
+
+sparkle.style.pointerEvents="none";
+
+sparkle.style.zIndex="999";
+
+document.body.appendChild(sparkle);
+
+sparkle.animate(
+
+[
+{
+transform:"translateY(0px)",
+opacity:1
+},
+{
+transform:
+`translateY(${-80-Math.random()*60}px)`,
+opacity:0
+}
+],
+
+{
+duration:1200
+}
+
+);
+
+setTimeout(()=>{
+sparkle.remove();
+},1200);
+
+}
+
+}
+
+/* Shooting Stars */
+
+function shootingStar(){
+
+const s=document.createElement("div");
+
+s.style.position="absolute";
+
+s.style.width="3px";
+s.style.height="3px";
+
+s.style.background="white";
+
+s.style.boxShadow=
+"0 0 10px white,0 0 20px white";
+
+s.style.left=
+Math.random()*80+"%";
+
+s.style.top=
+Math.random()*30+"%";
+
+document.getElementById("sky")
+.appendChild(s);
+
+s.animate(
+
+[
+{
+transform:"translate(0,0)",
+opacity:1
+},
+{
+transform:"translate(300px,200px)",
+opacity:0
+}
+],
+
+{
+duration:2000
+}
+
+);
+
+setTimeout(()=>{
+s.remove();
+},2000);
+
+}
+
+setInterval(shootingStar,5000);
+
+/* Final Reveal */
+
+function showFinalMessage(){
+
+document.getElementById("modal").style.display="none";
+
+document.getElementById("finalMessage")
+.style.display="flex";
+
+createCelebration();
+
+}
+
+/* Celebration */
+
+function createCelebration(){
+
+setInterval(()=>{
+
+const el=document.createElement("div");
+
+const arr=["💖","🌸","✨","💕","⭐"];
+
+el.innerHTML=
+arr[Math.floor(Math.random()*arr.length)];
+
+el.style.position="fixed";
+
+el.style.left=Math.random()*100+"vw";
+
+el.style.top="-50px";
+
+el.style.fontSize=
+(Math.random()*20+20)+"px";
+
+el.style.zIndex="300";
+
+document.body.appendChild(el);
+
+el.animate(
+
+[
+{
+transform:"translateY(0)",
+opacity:1
+},
+{
+transform:"translateY(120vh)",
+opacity:0
+}
+],
+
+{
+duration:5000
+}
+
+);
+
+setTimeout(()=>{
+el.remove();
+},5000);
+
+},300);
+
+}
 </script>
 
 </body>
 </html>
-```
