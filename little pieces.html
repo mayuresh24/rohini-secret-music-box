@@ -380,24 +380,9 @@ Happy Birthday Rohini ❤️
 </div>
 
 <script>
-
-const backgrounds = [
-'images/my home.jpg',
-'images/cyear.jpg',
-'images/luka chuppi rdb.jpg',
-'images/agar tum.jpeg',
-'images/kaakan.jpeg',
-'images/kakanhd.jpg',
-'images/world waiting.png',
-'images/fav flower.jpg',
-'images/fuse.jpg',
-'images/monsoon.jpg',
-'images/fav color shades.png'
-];
-
-const stars = [
-
+const memories = [
 {
+image:"images/my-home.jpg",
 title:"❤️ Home",
 text:`Out of all the places in the world,
 your comfort place is home.
@@ -405,8 +390,8 @@ your comfort place is home.
 Maybe that's because your heart belongs
 where love, warmth and familiar smiles live.`
 },
-
 {
+image:"images/cyear.jpg",
 title:"⭐ 2026 Memories",
 text:`You said 2026 is your happiest year.
 
@@ -416,32 +401,32 @@ their good days while they're happening.
 I love that you're collecting memories
 instead of waiting for happiness someday.`
 },
-
 {
+image:"images/luka-chuppi-rdb.jpg",
 title:"⭐ Luka Chuppi",
 text:`Some songs don't just play in our ears.
 
 They stay in our hearts and quietly
 become part of who we are.`
 },
-
 {
+image:"images/agar-tum.jpeg",
 title:"❤️ Agar Tum Sath Ho",
 text:`If a song reminds you of us,
 
 then every time it plays,
 a little piece of our story plays too.`
 },
-
 {
+image:"images/kaakan.jpeg",
 title:"🌼 Kakan",
 text:`The movies we love often reflect
 the emotions we understand best.
 
 Maybe that's why this story stayed with you.`
 },
-
 {
+image:"images/kakanhd.jpg",
 title:"🌼 Tears",
 text:`The same movie made you cry.
 
@@ -450,8 +435,8 @@ That says something beautiful —
 you don't just watch stories,
 you feel them.`
 },
-
 {
+image:"images/world-waiting.png",
 title:"⭐ Adventure",
 text:`Most people have a dream destination ready.
 
@@ -461,8 +446,8 @@ Maybe you're the kind of person
 who enjoys the journey more than
 the destination.`
 },
-
 {
+image:"images/fav-flower.jpg",
 title:"🌼 Jasmine",
 text:`Small flowers.
 
@@ -472,8 +457,8 @@ Quiet beauty.
 
 Somehow that choice feels very you.`
 },
-
 {
+image:"images/fuse.jpg",
 title:"❤️ Cadbury Fuse",
 text:`Out of every chocolate in the world,
 you chose Fuse.
@@ -481,8 +466,8 @@ you chose Fuse.
 A reminder that sometimes the simplest
 favorites stay with us the longest.`
 },
-
 {
+image:"images/monsoon.jpg",
 title:"⭐ Monsoon",
 text:`Rainy skies.
 
@@ -494,8 +479,8 @@ Some people wait for sunshine.
 
 You find beauty in the rain.`
 },
-
 {
+image:"images/fav-color-shades.png",
 title:"🌼 Colors",
 text:`Sky blue.
 
@@ -509,41 +494,50 @@ Peaceful colors.
 The kind that make you stop
 and breathe for a moment.`
 }
-
 ];
 
 let discovered = [];
 
 function openStar(index){
 
-document.getElementById("modal").style.display="flex";
+const memory = memories[index];
+
+if(!memory) return;
+
+document.getElementById("modal").style.display = "flex";
+
 document.getElementById("modalImage").style.backgroundImage =
-`url(${backgrounds[index]})`;
+`url("${memory.image}")`;
 
 document.getElementById("modalTitle").innerHTML =
-stars[index].title;
+memory.title;
 
 document.getElementById("modalText").innerHTML =
-stars[index].text.replace(/\n/g,"<br>");
+memory.text.replace(/\n/g,"<br>");
 
 if(!discovered.includes(index)){
+
 const clickedItem =
-document.querySelectorAll('.item')[index];
+document.querySelectorAll(".item")[index];
 
 const replacements = {
-'⭐':'🌟',
-'❤️':'💖',
-'🌼':'🌸'
+"⭐":"🌟",
+"❤️":"💖",
+"🌼":"🌸"
 };
 
+if(clickedItem){
+
 clickedItem.innerHTML =
-replacements[clickedItem.innerHTML];
+replacements[clickedItem.innerHTML] ||
+clickedItem.innerHTML;
 
 clickedItem.style.filter =
 "drop-shadow(0 0 18px gold)";
 
 clickedItem.style.transform =
 "scale(1.15)";
+}
 
 discovered.push(index);
 
@@ -552,17 +546,24 @@ discovered.length;
 
 createSparkles();
 
-if(discovered.length===11){
+if(discovered.length === memories.length){
 
 setTimeout(()=>{
 showFinalMessage();
-},1500);
+},1000);
 
 }
-
+}
 }
 
+function closeModal(){
+document.getElementById("modal").style.display="none";
 }
+
+
+let discovered = [];
+
+
 
 function closeModal(){
 document.getElementById("modal").style.display="none";
