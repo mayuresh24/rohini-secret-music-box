@@ -174,20 +174,38 @@ line-height:1.8;
 
 .close-btn{
 margin-top:20px;
-padding:12px 24px;
+padding:12px 28px;
 border:none;
-border-radius:25px;
+border-radius:30px;
 cursor:pointer;
-background:#ff6fb5;
+
+background:linear-gradient(
+135deg,
+#ff7eb3,
+#c084fc
+);
+
 color:white;
-font-weight:bold;
+font-size:1rem;
+font-weight:600;
+
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+user-select:none;
+-webkit-user-select:none;
+
+-webkit-tap-highlight-color: transparent;
+
+transition:.3s;
 }
 
 .close-btn:hover{
 transform:scale(1.05);
 }
 
-
+.close-btn:active{
+transform:scale(.95);
+}
 .modal-content h2,
 .modal-content p,
 .modal-content button{
@@ -212,15 +230,6 @@ margin-bottom:15px;
 
 .modal-content p{
 line-height:1.7;
-}
-
-.close-btn{
-margin-top:20px;
-padding:10px 22px;
-border:none;
-border-radius:20px;
-background:white;
-cursor:pointer;
 }
 
 /* Final Message */
@@ -285,8 +294,26 @@ opacity:.8;
 
 @media(max-width:768px){
 
+#progress{
+top:10px;
+left:50%;
+transform:translateX(-50%);
+width:180px;
+text-align:center;
+font-size:0.9rem;
+}
+
+.title{
+top:70px;
+width:90%;
+}
+
 .title h1{
 font-size:1.5rem;
+}
+
+.title p{
+font-size:0.8rem;
 }
 
 .item{
@@ -294,8 +321,10 @@ font-size:28px;
 }
 
 .moon{
-width:90px;
-height:90px;
+width:80px;
+height:80px;
+top:15px;
+right:15px;
 }
 
 #finalMessage h1{
@@ -559,12 +588,6 @@ showFinalMessage();
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
-
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
 /* Small Twinkling Stars */
 
 for(let i=0;i<120;i++){
